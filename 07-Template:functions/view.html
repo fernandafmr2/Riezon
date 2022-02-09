@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Learning html/template Functions</title>
+  </head>
+  <body>
+
+    <!-- escape string -->
+    <p>
+      {{html "<h2>Hello</h2>"}}
+    </p>
+
+    <!-- fungsi operator perbandingan -->
+    {{if eq .Name "Akiekano"}}
+      <p>I'm a zero two fan!</p>
+    {{else if ne .Name "Asuna"}}
+      <p>I'm from sword art online</p>
+    {{end}}
+    <p>
+
+    <!-- calling method -->
+    {{.SayHello "Towa Sama" "majitenshi"}}
+    </p>
+
+    <!-- string functions -->
+    <p>
+      {{printf "%s because I'm %s" "you know why?" "Batman!"}}
+    </p>
+    
+    <!-- len and index func -->
+    <p>
+      Akiekano have many friends. {{len .Friends}} of them are:
+      {{index .Friends 0}},
+      {{index .Friends 1}}, and
+      {{index .Friends 2}}
+    </p>
+
+    <!-- fungsi operator logika -->
+    {{$cond1 := true}}
+    {{$cond2 := false}}
+
+    {{if or $cond1 $cond2}}
+      <p>Be like Hololive!</p>
+    {{end}}
+
+  </body>
+</html>

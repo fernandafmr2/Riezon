@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Learning HTML/Template functions</title>
+  </head>
+  <body>
+    {{unescape "<!-- this is comment -->"}}
+    {{unescape "<h2>"}}
+      {{avg 8 9 8 6 7 8 8}}
+     <!-- | to mark h2 as parameter function unescape -->
+    {{"</h2>" | unescape}}
+  </body>
+</html>

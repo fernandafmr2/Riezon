@@ -1,0 +1,17 @@
+<!-- define template name -->
+{{define "index"}}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- include header -->
+    {{template "_header"}}
+  </head>
+  <body>
+    <!-- include header -->
+    {{template "_message"}}
+    <p>Page: Index</p>
+    <p>Welcome {{.name}}</p>
+  </body>
+</html>
+{{end}}
