@@ -24,7 +24,7 @@ func main(){
 	var address = "localhost:9000"
 	fmt.Printf("server started at %s\n", address)
 
-	// make and start new server with http
+	// start with server
 	server := new(http.Server)
 	server.Addr = address
 	server.ReadTimeout = time.Second * 10
