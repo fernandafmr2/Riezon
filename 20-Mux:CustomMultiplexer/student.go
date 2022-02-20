@@ -1,6 +1,5 @@
 package main
 
-// inheritance from struct student
 var students = []*Student{}
 
 type Student struct {
@@ -27,7 +26,9 @@ func SelectStudent(id string) *Student {
 
 func init() {
 	// make several data dummy to variable students
-	students = append(students, &Student{Id: "s001", Name: "Akie", Grade: 2})
-	students = append(students, &Student{Id: "s002", Name: "Kanao", Grade: 2})
-	students = append(students, &Student{Id: "s003", Name: "Sagiri", Grade: 3})
+	students = []*Student{
+		{Id: "s001", Name: "Akie", Grade: 2},
+		{Id: "s002", Name: "Kanao", Grade: 2},
+		{Id: "s003", Name: "Sagiri", Grade: 3},
+	}
 }

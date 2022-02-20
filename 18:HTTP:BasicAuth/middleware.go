@@ -2,7 +2,7 @@ package main
 
 import "net/http"
 
-const USERNAME = "batman"
+const USERNAME = "akiekano"
 const PASSWORD = "secret"
 
 func Auth(w http.ResponseWriter, r *http.Request) bool {

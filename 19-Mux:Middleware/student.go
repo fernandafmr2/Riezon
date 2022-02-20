@@ -1,8 +1,5 @@
 package main
 
-// inheritance from struct student
-var students = []*Student{}
-
 type Student struct {
 	Id    string
 	Name  string

@@ -7,10 +7,22 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/student", ActionStudent)
+	mux := http.DefaultServeMux
+
+	mux.HandleFunc("/student", ActionStudent)
+
+	// new variable data type http.Handler
+	var handler http.Handler = mux
+
+	// check cridentials basic auth
+	handler = MiddlewareAuth(handler)
+
+	// check method
+	handler = MiddlewareAllowOnlyGet(handler)
 
 	server := new(http.Server)
 	server.Addr = ":8081"
+	server.Handler = handler
 
 	fmt.Println("server started at localhost:8081")
 	server.ListenAndServe()
@@ -18,25 +30,11 @@ func main() {
 
 func ActionStudent(w http.ResponseWriter, r *http.Request) {
 
-	// check valid basic auth or not
-	if !Auth(w, r) {
-		return
-	}
-
-	// check only GET request
-	if !AllowOnlyGET(w, r) {
-		return
-	}
-
-	// check request have parameter "id"
 	if id := r.URL.Query().Get("id"); id != "" {
-		// only the user with the desired id is used
-		// as the return value
 		OutputJSON(w, SelectStudent(id))
 		return
 	}
 
-	// end point return all data user have
 	OutputJSON(w, GetStudents())
 
 
