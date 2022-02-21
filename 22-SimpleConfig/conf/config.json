@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 9000,
+        "port": "localhost:9000",
         "read_timeout": 5,
         "write_timeout": 5
     },

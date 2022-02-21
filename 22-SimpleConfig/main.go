@@ -14,7 +14,7 @@ type CustomMux struct {
 
 func (c CustomMux) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if conf.Configuration().Log.Verbose {
-		log.Println("Incoming request from", r.Host, "accessing", r.URL.String)
+		log.Println("Incoming request from", r.Host, "accessing", r.URL.String())
 	}
 
 	c.ServeMux.ServeHTTP(w, r)
@@ -33,9 +33,9 @@ func main() {
 	server.Handler = router
 	server.ReadTimeout = conf.Configuration().Server.ReadTimeout * time.Second
 	server.WriteTimeout = conf.Configuration().Server.WriteTimeout * time.Second
-	server.Addr = fmt.Sprintf("%d", conf.Configuration().Server.Port)
+	server.Addr = fmt.Sprintf("%s", conf.Configuration().Server.Port)
 
-	if conf.Configuration().Log.Verbose {
+	if conf.Configuration().Log.Verbose == true{
 		log.Printf("Starting server at %s \n", server.Addr)
 	}
 

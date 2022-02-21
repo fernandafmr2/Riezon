@@ -13,7 +13,8 @@ var shared *_Configuration
 
 type _Configuration struct {
 	Server struct {
-		Port 			uint 			`json:"port"`
+		Host			string          `json:"host"`
+		Port 			string 			`json:"port"`
 		ReadTimeout 	time.Duration 	`json:"read_timeout"`
 		WriteTimeout 	time.Duration 	`json:"write_timeout"`
 	}`json:"server"`
